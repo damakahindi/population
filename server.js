@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const population = require('./server/routes/population');
+
+
 // Initializing the express app
 const app = express();
 
@@ -15,6 +18,8 @@ const port = 7000;
 mongoose.connect('mongodb://dama:dama@ds123534.mlab.com:23534/population', {
   useMongoClient: true,
 });
+
+app.use('/api', population);
 
 app.listen(port, () => {
   console.info('==> 🌎 Listening on port %s. Open up http://127.0.0.1:%s/ ', port, port);
