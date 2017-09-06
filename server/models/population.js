@@ -8,12 +8,19 @@ const LocationSchema = new Schema({
     required: true,
   },
   female: {
-    type: String,
+    type: Number,
     required: true,
   },
   male: {
-    type: String,
+    type: Number,
     required: true,
+  },
+}, {
+  toObject: {
+    virtuals: true,
+  },
+  toJSON: {
+    virtuals: true,
   },
 });
 

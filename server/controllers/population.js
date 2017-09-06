@@ -27,7 +27,7 @@ const PopulationCtrl = {
     });
   },
   all(req, res) {
-    Location.find({}, (error, location) => {
+    Location.find({ virtuals: true }, (error, location) => {
       if (error) {
         return res.status(500).send(error);
       }
